@@ -1,0 +1,4 @@
+administer timezone clock settings:
+  title: 'Administer Timezone Clock settings'
+  description: 'Access to configure Timezone Clock settings.'
+  restrict access: true

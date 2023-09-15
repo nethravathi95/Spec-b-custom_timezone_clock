@@ -1,0 +1,13 @@
+site_location_time.settings:
+  type: config_object
+  label: 'Site Location Time Admin Settings'
+  mapping:
+    country:
+      type: string
+      label: 'Country'
+    city:
+      type: string
+      label: 'City'
+    timezone:
+      type: string
+      label: 'Timezone'

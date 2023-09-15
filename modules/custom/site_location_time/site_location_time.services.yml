@@ -1,0 +1,7 @@
+services:
+  site_location_time.service:
+    class: Drupal\site_location_time\Service\TimezoneService
+    arguments:
+      - '@config.factory'
+      - '@date.formatter'
+      - '@logger.factory'

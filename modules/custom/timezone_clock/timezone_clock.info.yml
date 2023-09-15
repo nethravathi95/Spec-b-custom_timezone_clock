@@ -1,0 +1,14 @@
+name: 'Timezone Clock'
+type: module
+description: 'Provides a Timezone Clock Block.'
+core_version_requirement: ^8 || ^9
+package: Custom
+dependencies:
+  - drupal:config
+  - drupal:datetime
+  - drupal:datetime_range
+config_install:
+  - timezone_clock.admin_settings
+autoload:
+  psr-4:
+    Drupal\timezone_clock\: src/

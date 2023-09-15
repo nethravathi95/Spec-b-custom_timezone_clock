@@ -1,0 +1,9 @@
+name: 'Site Location Time'
+type: module
+description: 'Provides a block to display site location and current time.'
+core_version_requirement: ^8 || ^9
+package: Custom
+dependencies:
+  - drupal:config
+config_install:
+  - site_location_time.settings
