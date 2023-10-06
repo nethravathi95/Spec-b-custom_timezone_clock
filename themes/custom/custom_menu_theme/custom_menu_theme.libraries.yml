@@ -1,0 +1,10 @@
+global-styling:
+  css:
+    theme:
+      css/custom-menu-style.css: {}
+      //maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css: { type: external }
+  js:
+    //code.jquery.com/jquery-3.5.1.slim.min.js: { type: external, minified: true }
+    //cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js: { type: external, minified: true }
+    //maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js: { type: external, minified: true }
+    js/custom.js: {}

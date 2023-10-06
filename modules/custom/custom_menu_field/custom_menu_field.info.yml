@@ -1,0 +1,5 @@
+name: 'Custom Menu Field'
+type: module
+description: 'Adds a custom field to main navigation menu items.'
+package: Custom
+core_version_requirement: ^8 || ^9

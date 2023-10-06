@@ -1,0 +1,73 @@
+/* Style the primary menu */
+.my-custom-menu {
+  list-style: none;
+  padding: 0;
+  background-color: #333;
+}
+
+.products{
+  display: flex;
+  padding: 10px;
+  margin: auto;
+}
+
+.product-lists
+{
+  border: 1px solid;
+  padding: 10px;
+    margin: 10px;
+}
+/* Style menu items */
+.my-custom-menu-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Style links in the menu */
+.my-custom-menu-item a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+  display: block;
+}
+
+/* Style submenu */
+.my-submenu {
+  display: none; /* Hide submenu by default */
+  position: absolute;
+  background-color: #333;
+  padding: 0;
+}
+
+/* Style submenu items */
+.my-submenu-item {
+  display: block;
+  margin-right: 0;
+}
+
+/* Show submenu on hover */
+.my-custom-menu-item:hover .my-submenu {
+  display: block;
+}
+.sub-menu{
+  padding-left: 15px;
+}
+
+.full-width-dropdown {
+  width: 70rem;
+  left: 0;
+  right: 0;
+  transform: translateX(-40%);
+}
+.dropdown-item {
+ 
+  padding: 0 !important;
+ 
+}
+.p-0{
+  padding:0px !important
+}
+.icon-img{
+  width: 20px;
+    height: 20px;
+}

@@ -1,0 +1,21 @@
+<?php
+/**
+ * Implements hook_entity_base_field_info() to add a custom field.
+ */
+function custom_menu_field_entity_base_field_info(EntityTypeInterface $entity_type) {
+  $fields = [];
+
+  if ($entity_type->id() === 'menu_link_content') {
+    $fields['field_custom_description'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Custom Description'))
+      ->setDescription(t('A custom description field for menu items.'))
+      ->setDefaultValue('')
+      ->setDisplayOptions('form', [
+        'type' => 'string_textfield',
+        'weight' => 1,
+      ])
+      ->setDisplayConfigurable('form', TRUE);
+  }
+
+  return $fields;
+}

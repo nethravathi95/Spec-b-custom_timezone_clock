@@ -1,0 +1,204 @@
+  <!-- {% import _self as menu %}
+  
+  {{ menu.menu_links(items, attributes, 0) }}
+  
+  {% macro menu_links(items, attributes, menu_level) %}
+  
+   
+    <ul{{ attributes.addClass(['menu', 'menu--' ~ menu_name|clean_class, 'nav', 'navbar-nav']) }}>
+   {% for item in items %}
+     {% set item_classes = [
+       item.is_expanded ? 'expanded',
+       item.is_expanded and menu_level == 0 ? 'dropdown',
+       item.in_active_trail ? 'active',
+       ]
+     %}
+     {% if item.below %}
+     <li class="nav-item dropdown{{ item.attributes.addClass(item.inactive_trail ? 'active' : '') }}"></li>
+     <a class="nav-link dropdown-toggle" href="{{ item.url }}" id="navbarDropdown{{ loop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {% if item.content %}
+        <span>{{item.content}}</span>
+      {% endif %}{{ item.title }}
+        {{ item.description }} 
+      </a>
+      
+      <div class="dropdown-menu full-width-dropdown" aria-labelledby="navbarDropdown{{ loop.index }}">
+        <div class="monetize-headline col-md-12">Products</div>
+        <div class="products"> 
+         
+          <div class="products-1 col-md-7">
+            <div class="row">
+            {% for sub_item in item.below %}
+            
+              <div class="col-md-6 p-0">
+                
+                <div class="product-lists d-flex">
+                  {% if sub_item.content %}
+                  <span>{{sub_item.content}}</span>
+                {% endif %}
+                  
+                
+                 
+                <div class="sub-menu">
+                  
+
+                  {{ link(sub_item.title, sub_item.url, {
+                    'class': {
+                      'class': 'dropdown-item' ~ (sub_item.inactive_trail ? ' active' : ''),
+                    },
+                    'id': {
+                      'id': 'dropdown-item-' ~ loop.index,
+                    },
+                    'html': true,
+                  }) }}
+                  <p id="dropdown-item-desc-{{ loop.index }}"></p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          </div>
+          <div class="col-md-5">
+            <h4>Info for more information</h4>
+          </div>
+        </div>
+      </div>
+      
+     </li>
+     {% else %}
+     
+          <a class="nav-link" href="{{ item.url }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% if item.content %}
+            <span>{{item.content}}</span>
+          {% endif %}{{ item.title }}
+          
+          </a>
+        {% endif %}
+        
+   {% endfor %}
+  </ul>
+  
+  {% endmacro %} -->
+  {#
+    /**
+     * @file
+     * Default theme implementation for each level of the menu.
+     */
+    #}
+    {% import _self as menu %}
+    
+    {{ menu.menu_links(items, attributes, 0) }}
+    
+    {% macro menu_links(items, attributes, menu_level) %}
+     
+       
+       
+       
+          <ul class="navbar-nav ml-auto">
+            {% for item in items %}
+           
+              {% set item_classes = [
+                item.is_expanded ? 'expanded',
+                item.is_expanded and menu_level == 0 ? 'dropdown',
+                item.in_active_trail ? 'active',
+              ] %}
+              {% if item.below %}
+                <li class="nav-item dropdown{{ item.attributes.addClass(item.inactive_trail ? 'active' : '') }}">
+                  <a class="nav-link dropdown-toggle" href="{{ item.url }}" id="navbarDropdown{{ loop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {% if item.content %}
+                      <span>{{ item.content }}</span>
+                    {% endif %}
+                    {{ item.title }}
+                   
+                  </a>
+                  
+                  {% if item.title == 'Monetize' %}
+                  <div class="dropdown-menu full-width-dropdown" aria-labelledby="navbarDropdown{{ loop.index }}">
+                    <div class="monetize-headline col-md-12">Products</div>
+                    <div class="products"> 
+                     
+                      <div class="products-1 col-md-7">
+                        <div class="row">
+                        {% for sub_item in item.below %}
+                        
+                          <div class="col-md-6 p-0">
+                            
+                            <div class="product-lists d-flex">
+                              {% if sub_item.content %}
+                              <span>{{sub_item.content}}</span>
+                            {% endif %}
+                              
+                            
+                             
+                            <div class="sub-menu">
+                              
+            
+                              {{ link(sub_item.title, sub_item.url, {
+                                'class': {
+                                  'class': 'dropdown-item' ~ (sub_item.inactive_trail ? ' active' : ''),
+                                },
+                                'id': {
+                                  'id': 'dropdown-item-' ~ loop.index,
+                                },
+                                'html': true,
+                              }) }}
+                              <p id="dropdown-item-desc-{{ loop.index }}"></p>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                      </div>
+                      </div>
+                      <div class="col-md-5">
+                        <h4>Info for more information</h4>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {% endif %}
+                  {% if item.title == 'sample' %}
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ loop.index }}">
+                          {% for sub_item in item.below %}
+                          <div class="sample-list">
+                            {% if sub_item.content %}
+                              <span>{{ sub_item.content }}</span>
+                            {% endif %}
+                            
+                            <div class="sub-menu" >
+                              {{ link(sub_item.title, sub_item.url, {
+                                'class': {
+                                  'class': 'dropdown-item' ~ (sub_item.inactive_trail ? ' active' : ''),
+                                },
+                                'id': {
+                                  'id': 'dropdown-item-' ~ loop.index,
+                                },
+                                'html': true,
+                              }) }}
+                              <p id="dropdown-item-sample-desc-{{ loop.index }}"></p>
+                            </div>
+                          </div>
+                          {% endfor %}
+                       
+                  
+                  </div>
+                  
+                  {% endif %}
+  
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ item.url }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {% if item.content %}
+                      <span>{{ item.content }}</span>
+                    {% endif %}
+                    {{ item.title }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+          
+        
+      
+    {% endmacro %}
+    

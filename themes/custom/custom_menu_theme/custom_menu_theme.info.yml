@@ -1,0 +1,8 @@
+name: 'Custom Menu Theme'
+type: theme
+description: 'A custom theme for the menu structure.'
+core_version_requirement: ^9 || ^8
+base theme: false
+libraries:
+  - custom_menu_theme/global-styling
+

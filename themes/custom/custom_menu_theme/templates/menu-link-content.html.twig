@@ -1,0 +1,14 @@
+{% set entityObject = elements['#menu_link_content'] %}
+{% set rendered_content = content|without('field_image') %}
+
+{% if content.field_image|render %}
+  {% set field_image_path = file_url(content.field_image[0]['#item'].entity.fileuri) %}
+{% endif %}
+
+{% if content %}
+{% if field_image_path is empty %}
+  {# The field_image_path is empty #}
+{% else %}
+<img class="icon-img" src="{{field_image_path}}" alt="{{ entityObject.getTitle() }}">
+{% endif %}
+{% endif %}
